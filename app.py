@@ -1,12 +1,15 @@
 import streamlit as st
 import google.generativeai as genai
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 st.set_page_config(page_title="Chatbot Gastronomía Peruana", page_icon="🍲")
 st.title("🍲 Chatbot Experto en Comida Peruana")
 
 # 1. Configurar tu API Key de Gemini
-API_KEY = "AIzaSyDti0yNNLCVdg0NR0iN5w7eSNSBLfyAeDs"  # Pega tu clave aquí
+API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=API_KEY)
 
 # 2. Configurar el modelo Gemini 3.6 Flash con System Prompt
